@@ -21,6 +21,10 @@
 #include <atomic>
 #include <queue>
 
+#ifndef __aarch64__
+#define __aarch64__
+#endif
+
 #if defined(SKVM_LLVM)
     #include <future>
     #include <llvm/Bitcode/BitcodeWriter.h>
