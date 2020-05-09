@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.4.1)
-set(SRC_PATH_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+set(SRC_SKIA "${SRC_ROOT}/skia")
 
 # Detect CPU type and whether we're building 64-bit or 32-bit code
 math(EXPR BITS "${CMAKE_SIZEOF_VOID_P} * 8")
@@ -30,4 +31,4 @@ else()
 endif()
 message(STATUS "${BITS}-bit build (${CPU_TYPE})")
 
-add_subdirectory(${SRC_PATH_ROOT}/skia/cmake)
+add_subdirectory(${SRC_SKIA}/cmake)
