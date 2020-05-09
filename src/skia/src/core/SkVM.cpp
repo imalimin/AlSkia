@@ -21,9 +21,6 @@
 #include <atomic>
 #include <queue>
 
-#ifndef __aarch64__
-#define __aarch64__
-#endif
 
 #if defined(SKVM_LLVM)
     #include <future>
@@ -2787,7 +2784,7 @@ namespace skvm {
             stack_slot[v] = next_stack_slot++;
             a->vmovups(A::Mem{A::rsp, stack_slot[v]*K*4}, r);
         };
-    #elif defined(__aarch64__)
+    #elif defined(__arm__) || defined(__aarch64__)
         const int K = 4;
         const A::X N     = A::x0,
                    GP0   = A::x8,
@@ -3234,7 +3231,7 @@ namespace skvm {
                     else           { a->vcvtps2dq(dst(), any(x)); }
                                      break;
 
-            #elif defined(__aarch64__)
+            #elif defined(__arm__) || defined(__aarch64__)
                 default:  // TODO
                     if (false) {
                         SkDEBUGFAILF("\nOp::%s (%d) not yet implemented\n", name(op), op);
@@ -3368,7 +3365,7 @@ namespace skvm {
             auto exit  = [&]{ if (nstack_slots) { a->add(A::rsp, nstack_slots*K*4); }
                               a->vzeroupper();
                               a->ret(); };
-        #elif defined(__aarch64__)
+        #elif defined(__arm__) || defined(__aarch64__)
             auto jump_if_less = [&](A::Label* l) { a->blt(l); };
             auto jump         = [&](A::Label* l) { a->b  (l); };
 
