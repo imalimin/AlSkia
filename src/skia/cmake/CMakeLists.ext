@@ -48,6 +48,7 @@ add_dependencies("${target}"
 
 
 #//:imgcvt
+if(ENABLE_EXECUTABLE)
 set("target" "imgcvt")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/imgcvt.cpp")
 set("${target}__obj_target_srcs" "$<TARGET_OBJECTS:skcms>")
@@ -69,6 +70,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:raw
@@ -141,6 +143,7 @@ add_dependencies("${target}"
 
 
 #//:sktexttopdf
+if(ENABLE_EXECUTABLE)
 set("target" "sktexttopdf")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/using_skia_and_harfbuzz.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -163,6 +166,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:libskottie_android
@@ -258,6 +262,7 @@ add_dependencies("${target}"
 
 
 #//:lua_app
+if(ENABLE_EXECUTABLE)
 set("target" "lua_app")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/lua/lua_app.cpp")
 set("${target}__obj_target_srcs" "$<TARGET_OBJECTS:lua>")
@@ -281,6 +286,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:gm
@@ -771,6 +777,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:list_gms
+if(ENABLE_EXECUTABLE)
 set("target" "list_gms")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/list_gms.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -807,6 +814,7 @@ target_link_libraries("${target}"
   "${library__dl}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//modules/skparagraph:skparagraph
@@ -995,6 +1003,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:nanobench
+if(ENABLE_EXECUTABLE)
 set("target" "nanobench")
 set("${target}__cxx_srcs" "${SRC_SKIA}/bench/nanobench.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -1040,6 +1049,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:libviewer
@@ -1387,6 +1397,7 @@ add_dependencies("${target}"
 
 
 #//:fm
+if(ENABLE_EXECUTABLE)
 set("target" "fm")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/dm/DMGpuTestProcs.cpp"
@@ -1442,9 +1453,11 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:pathops_unittest
+if(ENABLE_EXECUTABLE)
 set("target" "pathops_unittest")
 list(APPEND "${target}__other_srcs"
   "${SRC_SKIA}/tests/PathOpsCubicIntersectionTestData.h"
@@ -1539,6 +1552,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:xml
@@ -1756,6 +1770,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:skpbench
+if(ENABLE_EXECUTABLE)
 set("target" "skpbench")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skpbench/skpbench.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -1786,9 +1801,11 @@ target_link_libraries("${target}"
   "${library__dl}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:dump_record
+if(ENABLE_EXECUTABLE)
 set("target" "dump_record")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/tools/DumpRecord.cpp"
@@ -1812,6 +1829,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:hash_and_encode
@@ -2895,6 +2913,7 @@ add_dependencies("${target}"
 
 
 #//:get_images_from_skps
+if(ENABLE_EXECUTABLE)
 set("target" "get_images_from_skps")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/get_images_from_skps.cpp")
 set("${target}__obj_target_srcs" "$<TARGET_OBJECTS:flags>")
@@ -2916,6 +2935,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//third_party/freetype2:freetype2
@@ -3678,6 +3698,7 @@ add_dependencies("${target}"
 
 
 #//:image_diff_metric
+if(ENABLE_EXECUTABLE)
 set("target" "image_diff_metric")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/image_diff_metric.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -3698,6 +3719,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:gdbserver
@@ -3771,6 +3793,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:skdiff
+if(ENABLE_EXECUTABLE)
 set("target" "skdiff")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/tools/skdiff/skdiff.cpp"
@@ -3803,9 +3826,11 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:skqp
+if(ENABLE_EXECUTABLE)
 set("target" "skqp")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skqp/src/skqp_main.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -3854,7 +3879,7 @@ target_link_libraries("${target}"
   "${library__dl}"
   "${library__GLESv2}"
   "${library__log}")
-
+endif(ENABLE_EXECUTABLE)
 
 #//:fontmgr_android
 set("target" "fontmgr_android")
@@ -4551,7 +4576,8 @@ list(APPEND "${target}__obj_target_srcs"
   "$<TARGET_OBJECTS:pdf>"
   "$<TARGET_OBJECTS:crc32>"
   "$<TARGET_OBJECTS:fontmgr_custom>")
-add_library("${target}" STATIC ${${target}__cxx_srcs} ${${target}__other_srcs} ${${target}__obj_target_srcs})
+#//:skia
+add_library("${target}" SHARED ${${target}__cxx_srcs} ${${target}__other_srcs} ${${target}__obj_target_srcs})
 set_source_files_properties(${${target}__other_srcs} PROPERTIES HEADER_FILE_ONLY "True")
 # set_source_files_properties("${SRC_SKIA}/src/core/SkVM.cpp" PROPERTIES COMPILE_FLAGS "-D__aarch64__ ")
 set_property(TARGET "${target}" APPEND PROPERTY INCLUDE_DIRECTORIES
@@ -4586,6 +4612,7 @@ target_link_libraries("${target}"
 
 
 #//:fuzz
+if(ENABLE_EXECUTABLE)
 set("target" "fuzz")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/fuzz/Fuzz.cpp"
@@ -4649,6 +4676,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:skvm_jit
@@ -4663,6 +4691,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:list_gpu_unit_tests
+if(ENABLE_EXECUTABLE)
 set("target" "list_gpu_unit_tests")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/dm/DMGpuTestProcs.cpp"
@@ -4706,6 +4735,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//third_party/libwebp:libwebp_sse41
@@ -4724,6 +4754,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:create_test_font_color
+if(ENABLE_EXECUTABLE)
 set("target" "create_test_font_color")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/fonts/create_test_font_color.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -4752,6 +4783,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//modules/skottie:fuzz
@@ -5340,6 +5372,7 @@ target_link_libraries("${target}"
 
 
 #//:remote_demo
+if(ENABLE_EXECUTABLE)
 set("target" "remote_demo")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/remote_demo.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -5360,6 +5393,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:fontmgr_fuchsia
@@ -5452,6 +5486,7 @@ add_dependencies("${target}"
 
 
 #//:jitter_gms
+if(ENABLE_EXECUTABLE)
 set("target" "jitter_gms")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skqp/jitter_gms.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -5500,6 +5535,7 @@ target_link_libraries("${target}"
   "${library__dl}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:modules_testonly
@@ -6182,6 +6218,7 @@ add_dependencies("${target}"
 
 
 #//:skiaserve
+if(ENABLE_EXECUTABLE)
 set("target" "skiaserve")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/tools/skiaserve/Request.cpp"
@@ -6229,6 +6266,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//experimental/ffmpeg:video_encoder
@@ -6306,6 +6344,7 @@ add_custom_target("${target}" SOURCES ${${target}__cxx_srcs} DEPENDS ${${target}
 
 
 #//:make_skqp_model
+if(ENABLE_EXECUTABLE)
 set("target" "make_skqp_model")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skqp/make_skqp_model.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -6326,6 +6365,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:fontmgr_empty
@@ -6367,6 +6407,7 @@ add_dependencies("${target}"
 
 
 #//:cpu_modules
+if(ENABLE_EXECUTABLE)
 set("target" "cpu_modules")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/cpu_modules.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -6389,9 +6430,11 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:blob_cache_sim
+if(ENABLE_EXECUTABLE)
 set("target" "blob_cache_sim")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/blob_cache_sim.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -6412,6 +6455,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:compile_processors
@@ -6421,6 +6465,7 @@ add_custom_target("${target}" SOURCES ${${target}__cxx_srcs})
 
 
 #//:skpinfo
+if(ENABLE_EXECUTABLE)
 set("target" "skpinfo")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skpinfo.cpp")
 set("${target}__obj_target_srcs" "$<TARGET_OBJECTS:flags>")
@@ -6442,6 +6487,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:webp_decode
@@ -6473,6 +6519,7 @@ add_dependencies("${target}"
 
 
 #//:lua_pictures
+if(ENABLE_EXECUTABLE)
 set("target" "lua_pictures")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/lua/lua_pictures.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -6504,6 +6551,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:public_headers_warnings_check
@@ -6575,6 +6623,7 @@ add_custom_target("${target}" SOURCES ${${target}__other_srcs} DEPENDS ${${targe
 
 
 #//:create_test_font
+if(ENABLE_EXECUTABLE)
 set("target" "create_test_font")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/fonts/create_test_font.cpp")
 add_executable("${target}" ${${target}__cxx_srcs})
@@ -6595,6 +6644,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//third_party/sfntly:sfntly
@@ -6762,6 +6812,7 @@ add_dependencies("${target}"
 
 
 #//:skp_parser
+if(ENABLE_EXECUTABLE)
 set("target" "skp_parser")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skp_parser.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -6790,6 +6841,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//:armv7
@@ -6876,6 +6928,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:dm
+if(ENABLE_EXECUTABLE)
 set("target" "dm")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/dm/DM.cpp"
@@ -6935,6 +6988,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EXECUTABLE)
 
 
 #//third_party/dng_sdk:dng_sdk
