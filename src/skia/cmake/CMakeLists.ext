@@ -1741,8 +1741,8 @@ list(APPEND "${target}__c_srcs"
   "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/jquant1.c"
   "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/jquant2.c"
   "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/jutils.c"
-  "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/simd/arm64/jsimd.c")
-set("${target}__asm_srcs" "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/simd/arm64/jsimd_neon.S")
+  "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/simd/${CPU_TYPE}/jsimd.c")
+set("${target}__asm_srcs" "/Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo/simd/${CPU_TYPE}/jsimd_neon.S")
 add_library("${target}" STATIC ${${target}__c_srcs} ${${target}__asm_srcs})
 set_target_properties("${target}" PROPERTIES COMPILE_DEFINITIONS "TURBO_FOR_WINDOWS;USE_CLZ_INTRINSIC;NDEBUG;")
 set_target_properties("${target}" PROPERTIES COMPILE_FLAGS "-w -Wno-attributes -fstrict-aliasing -fPIC --sysroot=/Users/lmy/Library/Android/android-ndk-r17c/sysroot -O3 -fdata-sections -ffunction-sections -gline-tables-only -funwind-tables -Wno-unused-parameter -I /Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/libjpeg-turbo -I /Users/lmy/.AndroidStudioProjects/AlSkia/src/skia/third_party/externals/libjpeg-turbo ")
