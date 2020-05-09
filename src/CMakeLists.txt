@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 3.4.1)
+option(ENABLE_SKOTTIE "Enable skia." OFF)
+option(ENABLE_VIEWER "Enable skia." OFF)
+option(ENABLE_EDITOR "Enable skia." ON)
+option(ENABLE_SKQP "Enable skia." OFF)
+
 set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 set(SRC_SKIA "${SRC_ROOT}/skia")
 

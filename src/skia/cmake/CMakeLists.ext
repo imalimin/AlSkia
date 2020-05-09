@@ -166,6 +166,7 @@ target_link_libraries("${target}"
 
 
 #//:libskottie_android
+if(ENABLE_SKOTTIE)
 set("target" "libskottie_android")
 list(APPEND "${target}__cxx_srcs"
   "${SRC_SKIA}/platform_tools/android/apps/skottie/src/main/cpp/JavaInputStreamAdaptor.cpp"
@@ -181,6 +182,7 @@ list(APPEND "${target}__obj_target_srcs"
   "$<TARGET_OBJECTS:experimental_svg_model>"
   "$<TARGET_OBJECTS:modules__skparagraph_samples>"
   "$<TARGET_OBJECTS:modules__sksg_samples>")
+#//:libskottie_android
 add_library("${target}" SHARED ${${target}__cxx_srcs} ${${target}__obj_target_srcs})
 set_property(TARGET "${target}" APPEND PROPERTY INCLUDE_DIRECTORIES
   "${SRC_SKIA}/"
@@ -208,6 +210,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_SKOTTIE)
 
 
 #//:skcms
@@ -1040,6 +1043,7 @@ target_link_libraries("${target}"
 
 
 #//:libviewer
+if(ENABLE_VIEWER)
 set("target" "libviewer")
 list(APPEND "${target}__other_srcs"
   "${SRC_SKIA}/tools/viewer/AnimTimer.h"
@@ -1077,6 +1081,7 @@ list(APPEND "${target}__obj_target_srcs"
   "$<TARGET_OBJECTS:common_flags_gpu>"
   "$<TARGET_OBJECTS:samples>"
   "$<TARGET_OBJECTS:trace>")
+#//:libviewer
 add_library("${target}" SHARED ${${target}__cxx_srcs} ${${target}__other_srcs} ${${target}__obj_target_srcs})
 set_source_files_properties(${${target}__other_srcs} PROPERTIES HEADER_FILE_ONLY "True")
 set_property(TARGET "${target}" APPEND PROPERTY INCLUDE_DIRECTORIES
@@ -1114,6 +1119,7 @@ target_link_libraries("${target}"
   "${library__GLESv2}"
   "${library__log}"
   "${library__android}")
+endif(ENABLE_VIEWER)
 
 
 #//modules/skplaintexteditor:word_boundaries
@@ -5368,6 +5374,7 @@ set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,-
 
 
 #//:libeditor
+if(ENABLE_EDITOR)
 set("target" "libeditor")
 set("${target}__cxx_srcs" "${SRC_SKIA}/cmake/empty.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -5381,6 +5388,7 @@ list(APPEND "${target}__obj_target_srcs"
   "$<TARGET_OBJECTS:experimental_svg_model>"
   "$<TARGET_OBJECTS:modules__skplaintexteditor_word_boundaries>"
   "$<TARGET_OBJECTS:modules__skplaintexteditor_editor_app>")
+#//:libeditor
 add_library("${target}" SHARED ${${target}__cxx_srcs} ${${target}__obj_target_srcs})
 set_property(TARGET "${target}" APPEND PROPERTY INCLUDE_DIRECTORIES
   "${SRC_SKIA}/include/third_party/vulkan/"
@@ -5406,6 +5414,7 @@ target_link_libraries("${target}"
   "${library__dl}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_EDITOR)
 
 
 #//:sse2
@@ -6654,6 +6663,7 @@ target_link_libraries("${target}"
 
 
 #//:libskqp_app
+if(ENABLE_SKQP)
 set("target" "libskqp_app")
 set("${target}__cxx_srcs" "${SRC_SKIA}/tools/skqp/src/jni_skqp.cpp")
 list(APPEND "${target}__obj_target_srcs"
@@ -6672,6 +6682,7 @@ list(APPEND "${target}__obj_target_srcs"
   "$<TARGET_OBJECTS:skqp_lib>"
   "$<TARGET_OBJECTS:tests>"
   "$<TARGET_OBJECTS:experimental_svg_model>")
+#//:libskqp_app
 add_library("${target}" SHARED ${${target}__cxx_srcs} ${${target}__obj_target_srcs})
 set_property(TARGET "${target}" APPEND PROPERTY INCLUDE_DIRECTORIES
   "${SRC_SKIA}/"
@@ -6704,6 +6715,7 @@ target_link_libraries("${target}"
   "${library__EGL}"
   "${library__GLESv2}"
   "${library__log}")
+endif(ENABLE_SKQP)
 
 
 #//:none
