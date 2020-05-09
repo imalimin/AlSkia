@@ -6,7 +6,7 @@ option(ENABLE_SKQP "Enable skia." OFF)
 #//:executable
 option(ENABLE_EXECUTABLE "Enable executable." OFF)
 
-set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(SRC_SKIA "${SRC_ROOT}/skia")
 
 # Detect CPU type and whether we're building 64-bit or 32-bit code
@@ -39,3 +39,4 @@ endif()
 message(STATUS "${BITS}-bit build (${CPU_TYPE})")
 
 add_subdirectory(${SRC_SKIA}/cmake)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/app/src/main/cpp)
