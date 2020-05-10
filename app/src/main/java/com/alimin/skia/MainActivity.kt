@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun show() {
         val size = IntArray(2)
-        val obj = test(size)
+        val obj = testPath(size)
         val buf = obj as ByteBuffer?
         findViewById<TextView>(R.id.textView)?.text =
             "${buf?.capacity().toString()}, ${size[0]}x${size[1]}"
@@ -34,4 +34,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private external fun test(size: IntArray): Any?
+
+    private external fun testText(size: IntArray): Any?
+
+    private external fun testPath(size: IntArray): Any?
 }
