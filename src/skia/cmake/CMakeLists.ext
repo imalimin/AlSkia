@@ -169,6 +169,7 @@ target_link_libraries("${target}"
 endif(ENABLE_EXECUTABLE)
 
 
+#//:A performant, secure native player for JSON animations
 #//:libskottie_android
 if(ENABLE_SKOTTIE)
 set("target" "libskottie_android")
@@ -1052,6 +1053,8 @@ target_link_libraries("${target}"
 endif(ENABLE_EXECUTABLE)
 
 
+#//:A skia sample. The Skia Viewer displays a series of slides that exhibit specific features of Skia,
+#//:including the Skia golden master images (or GMs) and programmed samples that allow interaction
 #//:libviewer
 if(ENABLE_VIEWER)
 set("target" "libviewer")
@@ -3911,6 +3914,7 @@ set_target_properties("${target}" PROPERTIES COMPILE_FLAGS "-w -Wno-attributes -
 set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,--gc-sections ")
 
 
+#//:Skia core library
 #//:skia
 set("target" "skia")
 list(APPEND "${target}__other_srcs"
@@ -5407,6 +5411,7 @@ set_target_properties("${target}" PROPERTIES COMPILE_FLAGS "-Wno-attributes -fst
 set_target_properties("${target}" PROPERTIES LINK_FLAGS "-static-libstdc++ -Wl,--gc-sections ")
 
 
+#//:A skia sample
 #//:libeditor
 if(ENABLE_EDITOR)
 set("target" "libeditor")
@@ -6712,6 +6717,7 @@ target_link_libraries("${target}"
   "third_party__icu")
 
 
+#//:About test. About android native app.
 #//:libskqp_app
 if(ENABLE_SKQP)
 set("target" "libskqp_app")
