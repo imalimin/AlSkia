@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
         val buf = obj as ByteBuffer?
         findViewById<TextView>(R.id.textView)?.text =
             "${buf?.capacity().toString()}, ${size[0]}x${size[1]}"
-
-        val bmp = Bitmap.createBitmap(size[0], size[1], Bitmap.Config.ARGB_8888)
-        bmp.copyPixelsFromBuffer(buf)
-        findViewById<ImageView>(R.id.imageView)?.setImageBitmap(bmp)
+        if (null != buf) {
+            val bmp = Bitmap.createBitmap(size[0], size[1], Bitmap.Config.ARGB_8888)
+            bmp.copyPixelsFromBuffer(buf)
+            findViewById<ImageView>(R.id.imageView)?.setImageBitmap(bmp)
+        }
     }
 
     private external fun test(size: IntArray): Any?
